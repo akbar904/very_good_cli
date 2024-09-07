@@ -120,6 +120,34 @@ class Flutter {
     return result.every((e) => e.exitCode == ExitCode.success.code);
   }
 
+  /// Run Flutter launcher icons command.
+  static Future<bool> generateLauncherIcons({
+    required Logger logger,
+    String cwd = '.',
+  }) async {
+    final progress = logger.progress('Generating launcher icons');
+
+    try {
+      final result = await _Cmd.run(
+        'flutter',
+        ['pub', 'run', 'flutter_launcher_icons'],
+        workingDirectory: cwd,
+        logger: logger,
+      );
+
+      if (result.exitCode == ExitCode.success.code) {
+        progress.complete('Launcher icons generated successfully.');
+        return true;
+      } else {
+        progress.fail('Failed to generate launcher icons.');
+        return false;
+      }
+    } catch (e) {
+      progress.fail('Error generating launcher icons: $e');
+      return false;
+    }
+  }
+
   /// Run tests (`flutter test`).
   /// Returns a list of exit codes for each test process.
   static Future<List<int>> test({

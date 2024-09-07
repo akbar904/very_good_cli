@@ -25,6 +25,15 @@ class CreateCommand extends Command<int> {
       ),
     );
 
+    // very_good create flutter_stacked <args>
+    addSubcommand(
+      CreateFlutterStacked(
+        logger: logger,
+        generatorFromBundle: generatorFromBundle,
+        generatorFromBrick: generatorFromBrick,
+      ),
+    );
+
     // very_good create dart_package <args>
     addSubcommand(
       CreateDartPackage(

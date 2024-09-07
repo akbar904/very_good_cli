@@ -58,6 +58,34 @@ class Dart {
     return result.every((e) => e.exitCode == ExitCode.success.code);
   }
 
+  /// Activate stacked_cli globally.
+  static Future<bool> activateStackedCli({
+    required Logger logger,
+  }) async {
+    final activateProgress = logger.progress(
+      'Activating stacked_cli globally',
+    );
+
+    try {
+      final result = await _Cmd.run(
+        'dart',
+        ['pub', 'global', 'activate', 'stacked_cli'],
+        logger: logger,
+      );
+
+      if (result.exitCode == ExitCode.success.code) {
+        activateProgress.complete('stacked_cli activated successfully');
+        return true;
+      } else {
+        activateProgress.fail('Failed to activate stacked_cli');
+        return false;
+      }
+    } catch (e) {
+      activateProgress.fail('Error activating stacked_cli: $e');
+      return false;
+    }
+  }
+
   /// Apply all fixes (`dart fix --apply`).
   static Future<void> applyFixes({
     required Logger logger,
