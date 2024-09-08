@@ -14,8 +14,7 @@ class VeryGoodFlutterStacked extends Template {
       : super(
           name: 'flutter_stacked',
           bundle: veryGoodFlutterStackedBundle,
-          help:
-              'Creates a Very Good Flutter app using Stacked state management.',
+          help: 'Creates a Very Good Flutter app using Stacked.',
         );
 
   @override
@@ -33,7 +32,7 @@ class VeryGoodFlutterStacked extends Template {
   void _logSummary(Logger logger) {
     logger
       ..info('\n')
-      ..created('Generate a Steve Flutter application controller 🚀')
+      ..created('Generate a Steve Flutter application with Stacked 🚀')
       ..info('\n');
   }
 }
