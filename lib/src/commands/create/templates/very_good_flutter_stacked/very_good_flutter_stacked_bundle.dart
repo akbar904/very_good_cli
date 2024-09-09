@@ -2172,7 +2172,7 @@ final veryGoodFlutterStackedBundle = MasonBundle.fromJson(<String, dynamic>{
   "name": "very_good_flutter_stacked",
   "description":
       "A Very Good Flutter app created by Waturn LLC inspired by Very Good Ventures.",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "environment": {"mason": ">=0.1.0-dev.50 <0.1.0"},
   "repository":
       "https://github.com/alvinwatner/very_good_templates/tree/main/very_good_flutter_stacked",
