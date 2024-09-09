@@ -23,7 +23,6 @@ class VeryGoodFlutterStacked extends Template {
       if (await activateStackedCli(logger)) {
         await runStackedGenerate(logger, outputDir);
       }
-      await generateFlutterLauncherIcons(logger, outputDir);
       await applyDartFixes(logger, outputDir);
     }
     _logSummary(logger);
